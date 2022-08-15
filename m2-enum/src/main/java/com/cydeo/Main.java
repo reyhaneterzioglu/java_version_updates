@@ -23,11 +23,19 @@ public class Main {
         System.out.println("how to use switch cases with enums");
 
         //  Currency myCurrency =
-        switch (Currency.PENNY) {
+        switch(Currency.PENNY){
             case PENNY:
-                System.out.println("its 1 cent");
+                System.out.println("It is 1 cent");
                 break;
-
+            case NICKLE:
+                System.out.println("It is 5 cent");
+                break;
+            case DIME:
+                System.out.println("It is 10 cent");
+                break;
+            case QUARTER:
+                System.out.println("It is 25 cent");
+                break;
         }
 
 
