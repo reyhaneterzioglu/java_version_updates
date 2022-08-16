@@ -3,7 +3,7 @@ package com.cydeo.tasks.second;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Question2 {
+public class MemberTest {
 
     public static void main(String[] args) {
 
@@ -12,20 +12,29 @@ public class Question2 {
         members.add(new Member(35, Gender.FEMALE));
         members.add(new Member(22, Gender.MALE));
 
-        MemberPredicate memberPredicate = (Member member) -> member.getAge() >= 18 && member.getAge() <= 25 &&
-                member.gender.equals(Gender.MALE);
+        //                               ( Member member ) is also correct, but no need to write the type since its same as the method in interface
+        MemberPredicate memberPredicate = member -> member.getAge() >= 18 && member.getAge() <= 25 &&
+                member.getGender()==Gender.MALE;
+
+
         sendMessage(members, memberPredicate);
 
+      //  sendMessage(members, member -> member.getAge() >= 18 && member.getAge() <= 25 &&
+        //        member.getGender().equals(Gender.MALE));
 
     }
 
     public static void sendMessage(List<Member> members, MemberPredicate memberPredicate) {
 
+        List<Member> result = new ArrayList<>();
         for (Member member : members) {
             if (memberPredicate.test(member)) {
-                System.out.println("sending message to " + member);
+             //   System.out.println("sending message to " + member);
+                result.add(member);
             }
         }
+
+        System.out.println(result);
 
     }
 }
