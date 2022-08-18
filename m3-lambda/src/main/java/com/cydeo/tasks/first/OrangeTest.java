@@ -4,6 +4,7 @@ import com.cydeo.Color;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 public class OrangeTest {
 
@@ -45,13 +46,40 @@ public class OrangeTest {
 
         prettyPrintApple(inventory, orange -> "an Orange of " + orange.getWeight() + "g");
 
+        System.out.println("-------------------------------");
+
+        // different solutions by using the built-in functional interfaces
+
+        // first implementation
+
+        Function<Orange, String> function1 = orange -> {
+            String heavyOrLight = orange.getWeight() > 100 ? "heavy" : "light";
+            return "a " + heavyOrLight + " " + orange.getColor() + " orange";
+        };
+
+        prettyPrintAppleWithFuncInt(inventory, function1);
+
+        //second implementation
+        Function<Orange, String> function2 = orange -> "an Orange of " + orange.getWeight() + "g";
+        prettyPrintAppleWithFuncInt(inventory, function2);
+
+        // prettyPrintAppleWithFuncInt(inventory, orange -> "an Orange of " + orange.getWeight() + "g");
+
 
     }
 
-
+    //using custom functional interface
     public static void prettyPrintApple(List<Orange> inventory, OrangeFormatter formatter) {
         for (Orange orange : inventory) {
             String output = formatter.accept(orange);
+            System.out.println(output);
+        }
+    }
+
+    //using built-in functional interface
+    public static void prettyPrintAppleWithFuncInt(List<Orange> inventory, Function<Orange, String> function) {
+        for (Orange orange : inventory) {
+            String output = function.apply(orange);
             System.out.println(output);
         }
     }
