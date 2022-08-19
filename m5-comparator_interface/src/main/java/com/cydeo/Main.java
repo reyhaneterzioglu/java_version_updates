@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public class Main {
 
@@ -34,5 +35,7 @@ public class Main {
         list.sort((o2,o1)->o1.compareTo(o2));
         list.sort(Comparator.reverseOrder());
         System.out.println(list);
+
+
     }
 }
