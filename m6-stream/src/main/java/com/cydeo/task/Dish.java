@@ -10,4 +10,5 @@ public class Dish {
     private boolean vegetarian;
     private int calories;
     private Type type;
+
 }

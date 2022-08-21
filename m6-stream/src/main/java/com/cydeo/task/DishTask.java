@@ -1,6 +1,7 @@
 package com.cydeo.task;
 
 import java.util.Comparator;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import static com.cydeo.task.DishData.getAll;
@@ -52,6 +53,7 @@ public class DishTask {
         getAll().stream()
                 .filter(dish -> dish.getCalories() > 300)
                 .map(Dish::getName)
+
                 .limit(3)
                 .forEach(System.out::println);
 
