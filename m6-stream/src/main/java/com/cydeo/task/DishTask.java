@@ -75,9 +75,17 @@ public class DishTask {
         //   .forEach(System.out::println);
         stream.forEach(System.out::println);
 
+        System.out.println("--------------------------------");
 
+        // How would you count the number of dishes in a stream using the map and reduce methods?
+
+        Integer numOfDishes = getAll().stream()
+                .map(Dish::getCalories)
+                .map(i -> 1)
+                .reduce(Integer::sum).get();
+
+        System.out.println(numOfDishes);
 
 
     }
-
 }
