@@ -15,7 +15,6 @@ public class FunctionalInterface {
             }
         };
 
-
         System.out.println("**************PREDICATE**************");
 
         Predicate<Integer> lesserThan = i -> i < 18;

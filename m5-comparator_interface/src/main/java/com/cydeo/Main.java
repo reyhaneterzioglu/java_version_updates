@@ -36,6 +36,5 @@ public class Main {
         list.sort(Comparator.reverseOrder());
         System.out.println(list);
 
-
     }
 }
